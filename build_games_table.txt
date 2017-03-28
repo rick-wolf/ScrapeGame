@@ -3,6 +3,5 @@
 CREATE TABLE games (
 	gameID SERIAL PRIMARY KEY,
 	gameTitle VARCHAR(255) NOT NULL,
-	metacriticURL VARCHAR(500) NOT NULL,
-	platform VARCHAR(50) NOT NULL
+	metacriticURL VARCHAR(500) NOT NULL
 );
