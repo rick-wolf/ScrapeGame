@@ -1,0 +1,15 @@
+# commands for building reviews and reviewers tables
+
+
+CREATE TABLE reviewers (
+	reviewer VARCHAR(250) UNIQUE
+);
+
+CREATE TABLE reviews (
+	review_id SERIAL PRIMARY KEY,
+	game_id INT REFERENCES games(gameid),
+	reviewer VARCHAR(250) REFERENCES reviewers(reviewer),
+	text VARCHAR(10000),
+	date DATE,
+	score INT
+);
