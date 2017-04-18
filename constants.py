@@ -8,3 +8,7 @@ sleeptime = 2 # the duration of sleep between requests, in seconds
 
 ## Games Table
 games_table_url = "http://www.metacritic.com/browse/games/release-date/available/pc/date?view=condensed&page=" # iterate through page numbers
+
+## Reviews Table
+reviews_table_url = "http://www.metacritic.com/game/pc/"
+reviews_table_suffix = "/user-reviews"
