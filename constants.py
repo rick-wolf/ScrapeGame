@@ -12,3 +12,4 @@ games_table_url = "http://www.metacritic.com/browse/games/release-date/available
 ## Reviews Table
 reviews_table_url = "http://www.metacritic.com"
 reviews_table_suffix = "/user-reviews"
+reviews_attr = 'review user_review'
