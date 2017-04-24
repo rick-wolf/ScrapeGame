@@ -22,8 +22,12 @@ def retrieve_reviews(url, headers, suffix, title_link):
     :return: list of dicts containing data about each review
     """
     
-    request = urllib.request.Request(url+title_link+suffix, None, headers)
-    data = urllib.request.urlopen(request).read()
+    try:
+    	request = urllib.request.Request(url+title_link+suffix, None, headers)
+    	data = urllib.request.urlopen(request).read()
+    except urllib.error.HTTPError:
+    	return []
+    
     soup = BeautifulSoup(data, 'lxml')
     
     reviews = soup.findAll('li', attrs={'class': 'review user_review'})
@@ -68,7 +72,8 @@ def main():
 	conn.autocommit = True
 	cur = conn.cursor()
 
-	cur.execute("SELECT * FROM games OFFSET 1000 LIMIT 3000")
+	#cur.execute("SELECT * FROM games OFFSET 4000 LIMIT 5000")
+	cur.execute("SELECT * FROM games WHERE gameid>5024 ORDER BY gameid LIMIT 2000")
 	titles = cur.fetchall()
 
 
