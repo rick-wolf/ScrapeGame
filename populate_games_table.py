@@ -70,9 +70,13 @@ def main():
     	);
 	"""
 
-	# retrieve game titles and enter into tables
-	game_titles = paginate_games(constants.games_table_url, constants.headers)
+	# retrieve xbox game titles and enter into tables
+	game_titles = paginate_games(constants.games_table_url_xbox, constants.headers)
 	cur.executemany(insert_cmd, game_titles)
+
+    # retrieve ps4 game titles and enter into tables
+    game_titles = paginate_games(constants.games_table_url_ps4, constants.headers)
+    cur.executemany(insert_cmd, game_titles)
 
 
 if __name__ == "__main__":
